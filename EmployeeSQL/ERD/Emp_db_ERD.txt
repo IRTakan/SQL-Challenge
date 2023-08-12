@@ -1,0 +1,57 @@
+# Data Modeling for Employees Database
+
+titles
+-
+# title_id - primary key,
+# also found in employees as emp_title_id
+title_id VARCHAR pk
+# List of titles
+title VARCHAR
+
+employees
+-
+# emp_no - primary key
+# also found in dept_emp, dept_manager and salaries list
+emp_no INT pk
+# employees has a title id employees(emp_title_id), this id has relationship with the composite foreign key titles(title_id)
+emp_title_id VARCHAR FK >- Titles.title_id
+# employees birth date
+birth_date  DATE
+# employees first name
+first_name VARCHAR
+# employees last name
+last_name VARCHAR
+# employees sex
+sex VARCHAR
+# employees hired date
+hire_date DATE
+
+dept_manager
+-
+# dept_no in dept_manager list and also shares a unique key with dept_emp(dept_no)
+dept_no VARCHAR FK >- Departments.dept_no
+# emp_no in dept_ mangager list which shares a unique key with employees(emp_no)
+emp_no INT FK >- Employees.emp_no
+
+dept_emp
+-
+# emp_no in dept_emp list which shares a unique key with employees(emp_no)
+emp_no INT FK >- Employees.emp_no
+# dept_no in dept_emp list which shares a unique key with dept_emp(dept_no)
+dept_no VARCHAR FK >- Departments.dept_no
+
+salaries
+-
+# emp_no in salaries which shares unique keys with employees(emp_no)
+emp_no INT FK >- Employees.emp_no
+# employees salaries
+salary INT
+
+departments
+-
+# dept_no - primary key, also found in dept_emp and dept_manager list
+dept_no VARCHAR pk
+# department names
+dept_name VARCHAR
+
+
