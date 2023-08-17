@@ -33,4 +33,5 @@ Listed each employee in the Sales and Development departments, including their e
 
 Listed the frequency counts, in descending order, of all the employee last names (that is, how many employees share each last name).
 
-*Technologies used: Microsoft Visual Studio Code and PgAdmin4 v7
+*Technologies used: Microsoft Visual Studio Code and PgAdmin4 v7 &
+QuickDBD: https://app.quickdatabasediagrams.com/
