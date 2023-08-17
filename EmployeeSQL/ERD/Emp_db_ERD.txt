@@ -1,5 +1,12 @@
 # Data Modeling for Employees Database
 
+departments
+-
+# dept_no - primary key, also found in dept_emp and dept_manager list
+dept_no VARCHAR pk
+# department names
+dept_name VARCHAR
+
 titles
 -
 # title_id - primary key,
@@ -26,13 +33,6 @@ sex VARCHAR
 # employees hired date
 hire_date DATE
 
-dept_manager
--
-# dept_no in dept_manager list and also shares a unique key with dept_emp(dept_no)
-dept_no VARCHAR FK >- Departments.dept_no
-# emp_no in dept_ mangager list which shares a unique key with employees(emp_no)
-emp_no INT FK >- Employees.emp_no
-
 dept_emp
 -
 # emp_no in dept_emp list which shares a unique key with employees(emp_no)
@@ -40,18 +40,16 @@ emp_no INT FK >- Employees.emp_no
 # dept_no in dept_emp list which shares a unique key with dept_emp(dept_no)
 dept_no VARCHAR FK >- Departments.dept_no
 
+dept_manager
+-
+# dept_no in dept_manager list and also shares a unique key with dept_emp(dept_no)
+dept_no VARCHAR FK >- Departments.dept_no
+# emp_no in dept_ mangager list which shares a unique key with employees(emp_no)
+emp_no INT FK >- Employees.emp_no
+
 salaries
 -
 # emp_no in salaries which shares unique keys with employees(emp_no)
 emp_no INT FK >- Employees.emp_no
 # employees salaries
 salary INT
-
-departments
--
-# dept_no - primary key, also found in dept_emp and dept_manager list
-dept_no VARCHAR pk
-# department names
-dept_name VARCHAR
-
-

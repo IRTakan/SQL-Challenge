@@ -1,11 +1,12 @@
 -- Data Engineering
--- DROP TABLE IF EXISTS departments CASCADE;
--- DROP TABLE IF EXISTS titles CASCADE;
--- DROP TABLE IF EXISTS employees CASCADE;
--- DROP TABLE IF EXISTS dept_emp CASCADE;
--- DROP TABLE IF EXISTS dept_manager CASCADE;
--- DROP TABLE IF EXISTS salaries CASCADE;
 
+-- Drop tables (in reverse order, to avoid errors if they already exist).
+DROP TABLE IF EXISTS salaries;
+DROP TABLE IF EXISTS dept_manager;
+DROP TABLE IF EXISTS dept_emp;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS title;
+DROP TABLE IF EXISTS departments;
 
 CREATE TABLE "departments" (
     -- dept_no - primary key, also found in dept_emp and dept_manager list
@@ -28,7 +29,7 @@ CREATE TABLE "titles" (
 );
 
 CREATE TABLE "employees" (
--- # emp_no - primary key, also found in dept_emp, dept_manager and salaries list
+    -- # emp_no - primary key, also found in dept_emp, dept_manager and salaries list
     "emp_no" INT   NOT NULL,
     -- # employees has a title id employees(emp_title_id), this id has relationship with the composite foreign key titles(title_id)
     "emp_title_id" VARCHAR   NOT NULL,
@@ -47,13 +48,21 @@ CREATE TABLE "employees" (
      )
 );
 
+ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_emp_title_id" FOREIGN KEY("emp_title_id")
+REFERENCES "titles" ("title_id");
+
 CREATE TABLE "dept_emp" (
     -- # emp_no in dept_emp list which shares a unique key with employees(emp_no)
     "emp_no" INT   NOT NULL,
-    -- # dept_no in dept_emp list which shares a unique key with dept_emp(dept_no)
-dept_no VARCHAR FK >- Departments.dept_no
+    -- # dept_no in dept_emp list and shares a unique key with dept_emp(dept_no)
     "dept_no" VARCHAR   NOT NULL
 );
+
+ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
+ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_dept_no" FOREIGN KEY("dept_no")
+REFERENCES "departments" ("dept_no");
 
 CREATE TABLE "dept_manager" (
     -- # dept_no in dept_manager list and also shares a unique key with dept_emp(dept_no)
@@ -62,27 +71,18 @@ CREATE TABLE "dept_manager" (
     "emp_no" INT   NOT NULL
 );
 
+ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_dept_no" FOREIGN KEY("dept_no")
+REFERENCES "departments" ("dept_no");
+
+ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_emp_no" FOREIGN KEY("emp_no")
+REFERENCES "employees" ("emp_no");
+
 CREATE TABLE "salaries" (
     -- # emp_no in salaries which shares unique keys with employees(emp_no)
     "emp_no" INT   NOT NULL,
     -- employees salaries
     "salary" INT   NOT NULL
 );
-
-ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_emp_title_id" FOREIGN KEY("emp_title_id")
-REFERENCES "titles" ("title_id");
-
-ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "employees" ("emp_no");
-
-ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_dept_no" FOREIGN KEY("dept_no")
-REFERENCES "departments" ("dept_no");
-
-ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_dept_no" FOREIGN KEY("dept_no")
-REFERENCES "departments" ("dept_no");
-
-ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "employees" ("emp_no");
 
 ALTER TABLE "salaries" ADD CONSTRAINT "fk_salaries_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");

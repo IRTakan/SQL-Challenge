@@ -16,8 +16,8 @@ FROM departments
 JOIN dept_manager
 ON departments.dept_no = dept_manager.dept_no
 JOIN employees
-ON dept_manager.emp_no = employees.emp_no;
-ORDER BY d.dept_name ASC;
+ON dept_manager.emp_no = employees.emp_no
+ORDER BY dept_name ASC;
 
 -- Department of each employee (Along with employee number, last name, first name, department name).
 SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
@@ -25,8 +25,8 @@ FROM dept_emp
 JOIN employees
 ON dept_emp.emp_no = employees.emp_no
 JOIN departments
-ON dept_emp.dept_no = departments.dept_no;
-ORDER BY d.dept_name ASC;
+ON dept_emp.dept_no = departments.dept_no
+ORDER BY dept_name ASC;
 
 -- First name, last name, and sex for employees whose first name is "Hercules" and last name beings with "B."
 SELECT first_name, last_name, sex
@@ -61,12 +61,3 @@ GROUP BY last_name
 ORDER BY
 COUNT(last_name) DESC;
 
--- -- create view for bonus bar chard of avg salary by title
--- CREATE VIEW avg_salaries_by_title AS
--- SELECT round(avg(s.salary)) as avg_salary, t.title
--- FROM titles t
--- JOIN employees e
--- ON t.title_id = e.emp_title_id
--- JOIN salaries s
--- ON e.emp_no = s.emp_no
--- GROUP BY t.title;
