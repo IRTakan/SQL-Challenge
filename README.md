@@ -8,6 +8,8 @@ import them into a SQL database, and then answered questions about the data. Thr
 I inspected all of the CSV files, and then sketched an Entity Relationship Diagram of the tables. 
 To create the sketch, I used a free tool called QuickDBDLinks.
 
+<img src="https://github.com/IRTakan/SQL-Challenge/blob/main/EmployeeSQL/ERD/Emp_db_ERD.png?raw=true" width=700 height=400>
+
 ## -- Data engineering
 With the provided information I created a table schema for each of the six CSV files. 
 I Remembered to specify the data types, primary keys, foreign keys, and other constraints.
