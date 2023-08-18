@@ -1,6 +1,6 @@
 # SQL-Challenge
 
-This challenge focuses on a research project about people whom Pewlett Hackard (a fictional company)employed during the 1980s and 1990s. 
+This challenge focuses on a research project about people whom Pewlett Hackard (a fictional company) employed during the 1980s and 1990s. 
 All that remained was an employee database from that period are six CSV files which I used for my analysis. I created tables to hold the data from the CSV files, 
 import them into a SQL database, and then answered questions about the data. Three tasks had to be performed; 
 
@@ -17,7 +17,7 @@ It was important that for the primary keys, the columns were unique, and that ta
 Once everything looked good I imported each CSV file into its corresponding SQL table.
 
 ## -- Data Analysis.
-For the data analysis I created queries that did these things;
+For the data analysis I created queries that did these tasks;
 
 Listed the employee number, last name, first name, sex, and salary of each employee.
 ```
