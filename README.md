@@ -90,7 +90,7 @@ GROUP BY last_name
 ORDER BY
 COUNT(last_name) DESC;
 ```
-*Technologies used: Microsoft Visual Studio Code and PgAdmin4 v7 &
+*Technologies used: Microsoft Visual Studio Code, PgAdmin4 v7 &
 QuickDBD: https://app.quickdatabasediagrams.com/
 
 *To import the data use pdAdmin GUI's Import/Export Data. This is done by right-clicking on each 
