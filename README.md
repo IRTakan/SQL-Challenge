@@ -1,12 +1,14 @@
 # SQL-Challenge
 
-This challenge focuses on a research project about people whom Pewlett Hackard (a fictional company)employed during the 1980s and 1990s. 
+This challenge focuses on a research project about people whom Pewlett Hackard (a fictional company) employed during the 1980s and 1990s. 
 All that remained was an employee database from that period are six CSV files which I used for my analysis. I created tables to hold the data from the CSV files, 
 import them into a SQL database, and then answered questions about the data. Three tasks had to be performed; 
 
 ## -- Data modeling 
 I inspected all of the CSV files, and then sketched an Entity Relationship Diagram of the tables. 
 To create the sketch, I used a free tool called QuickDBDLinks.
+
+<img src="https://github.com/IRTakan/SQL-Challenge/blob/main/EmployeeSQL/ERD/Emp_db_ERD.png?raw=true" width=700 height=400>
 
 ## -- Data engineering
 With the provided information I created a table schema for each of the six CSV files. 
@@ -15,7 +17,7 @@ It was important that for the primary keys, the columns were unique, and that ta
 Once everything looked good I imported each CSV file into its corresponding SQL table.
 
 ## -- Data Analysis.
-For the data analysis I created queries that did these things;
+For the data analysis I created queries that did these tasks;
 
 Listed the employee number, last name, first name, sex, and salary of each employee.
 ```
@@ -88,5 +90,19 @@ GROUP BY last_name
 ORDER BY
 COUNT(last_name) DESC;
 ```
-*Technologies used: Microsoft Visual Studio Code and PgAdmin4 v7 &
+*Technologies used: Microsoft Visual Studio Code, PgAdmin4 v7 &
 QuickDBD: https://app.quickdatabasediagrams.com/
+
+*To import the data use pdAdmin GUI's Import/Export Data. Right-click on each 
+table and then import the matched .csv file from the root repository 'Resources' folder.
+Import in this order:
+```
+1 - departments
+2 - titles
+3 - employees
+4 - dept_emp
+5 - dept_manager
+6 - salaries
+
+```
+*Note: The order that the tables appear in the emp_schemata.sql is the order they were created.
