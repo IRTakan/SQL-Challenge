@@ -94,6 +94,15 @@ COUNT(last_name) DESC;
 QuickDBD: https://app.quickdatabasediagrams.com/
 
 *To import the data use pdAdmin GUI's Import/Export Data. This is done by right-clicking on each 
-table and then importing the matched .csv file from the root repo's 'Resources' folder).
+table and then importing the matched .csv file from the root repository 'Resources' folder.
+Import in this order:
+```
+1 - departments
+2 - titles
+3 - employees
+4 - dept_emp
+5 - dept_manager
+6 - salaries
 
+```
 *Note: The order that the tables appear in the emp_schemata.sql is the order they were created.
