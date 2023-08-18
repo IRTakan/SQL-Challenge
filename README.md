@@ -106,3 +106,7 @@ Import in this order:
 
 ```
 *Note: The order that the tables appear in the emp_schemata.sql is the order they were created.
+
+*Here's an example for one of the queries that lists employee number, last name, first name, sex, and salary of each employee. 
+
+<img src="https://github.com/IRTakan/SQL-Challenge/blob/main/EmployeeSQL/example_screenshot.png?raw=true" width=700 height=400>
