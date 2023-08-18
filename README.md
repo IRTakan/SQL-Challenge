@@ -93,8 +93,8 @@ COUNT(last_name) DESC;
 *Technologies used: Microsoft Visual Studio Code, PgAdmin4 v7 &
 QuickDBD: https://app.quickdatabasediagrams.com/
 
-*To import the data use pdAdmin GUI's Import/Export Data. This is done by right-clicking on each 
-table and then importing the matched .csv file from the root repository 'Resources' folder.
+*To import the data use pdAdmin GUI's Import/Export Data. Right-click on each 
+table and then import the matched .csv file from the root repository 'Resources' folder.
 Import in this order:
 ```
 1 - departments
