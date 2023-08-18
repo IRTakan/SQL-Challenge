@@ -95,3 +95,5 @@ QuickDBD: https://app.quickdatabasediagrams.com/
 
 *To import the data use pdAdmin GUI's Import/Export Data. This is done by right-clicking on each 
 table and then importing the matched .csv file from the root repo's 'Resources' folder).
+
+*Note: The order that the tables appear in the emp_schemata.sql is the order they were created.
